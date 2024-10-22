@@ -68,23 +68,24 @@ html {
     height: 800px;
 }
 	.titter { 
-    border: #990000 1px solid; 
+   border: #990000 1px solid; 
     height: 154px; 
     width: 14%; 
     float: left; 
     position: absolute; 
     margin-top: 14.9%; 
     background-color: white; 
-    margin-left: 20%; 
-    overflow: hidden; 
-    overflow-x: hidden;
+    margin-left: 0%; /* Adjust as needed */
+    overflow: hidden;
+    /* Removed centering styles */
 } 
 
 
 #gif-image { 
-    overflow: hidden; 
+ float: left; /* Move the image to the left */
     width: 100%; 
-    height: 100%;
+    height: 100%; 
+    overflow: hidden;
 }
 .header { 
     grid-area: header; 
