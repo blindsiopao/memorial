@@ -215,286 +215,174 @@
 
 
 
+<style>
+@font-face {
+  font-family: 'synkopy';
+  src: url('https://awhe.neocities.org/templates/archive/Synkopy-Regular.otf');
+}
+@font-face {
+  font-family: "Font Awesome 5 Free";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('https://ka-f.fontawesome.com/releases/v5.15.4/webfonts/free-fa-regular-400.eot');
+  src: url('https://ka-f.fontawesome.com/releases/v5.15.4/webfonts/free-fa-regular-400.eot?#iefix') format('embedded-opentype'),
+       url('https://ka-f.fontawesome.com/releases/v5.15.4/webfonts/free-fa-regular-400.woff2') format('woff2'),
+       url('https://ka-f.fontawesome.com/releases/v5.15.4/webfonts/free-fa-regular-400.woff') format('woff'),
+       url('https://ka-f.fontawesome.com/releases/v5.15.4/webfonts/free-fa-regular-400.ttf') format('truetype'),
+       url('https://ka-f.fontawesome.com/releases/v5.15.4/webfonts/free-fa-regular-400.svg#fontawesome') format('svg');
+}
+@font-face {
+  font-family: "Font Awesome 5 Free";
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url('https://ka-f.fontawesome.com/releases/v5.15.4/webfonts/free-fa-solid-900.eot');
+  src: url('https://ka-f.fontawesome.com/releases/v5.15.4/webfonts/free-fa-solid-900.eot?#iefix') format('embedded-opentype'),
+       url('https://ka-f.fontawesome.com/releases/v5.15.4/webfonts/free-fa-solid-900.woff2') format('woff2'),
+       url('https://ka-f.fontawesome.com/releases/v5.15.4/webfonts/free-fa-solid-900.woff') format('woff'),
+       url('https://ka-f.fontawesome.com/releases/v5.15.4/webfonts/free-fa-solid-900.ttf') format('truetype'),
+       url('https://ka-f.fontawesome.com/releases/v5.15.4/webfonts/free-fa-solid-900.svg#fontawesome') format('svg');
+}
 
-<style> 
+/* General body styling */
+body {
+  cursor: url('https://cur.cursors-4u.net/sports/spo-1/spo48.cur'), auto !important;
+  text-align: left;
+  font-family: 'ms gothic', monospace;
+  background-image: url('https://i.imgur.com/z1MDStw.gif');
+  font-size: 2vh;
+}
 
-@font-face { 
-  font-family:'synkopy';
-  src:url(https://awhe.neocities.org/templates/archive/Synkopy-Regular.otf);
-} 
-@font-face { 
-  font-family:"Font Awesome 5 Free";
-  font-style:normal;
-  font-weight:400;
-  font-display:block;
-  src:url(https://ka-f.fontawesome.com/releases/v5.15.4/webfonts/free-fa-regular-400.eot);
-  src:url(https://ka-f.fontawesome.com/releases/v5.15.4/webfonts/free-fa-regular-400.eot?#iefix) format("embedded-opentype"),url(https://ka-f.fontawesome.com/releases/v5.15.4/webfonts/free-fa-regular-400.woff2) format("woff2"),url(https://ka-f.fontawesome.com/releases/v5.15.4/webfonts/free-fa-regular-400.woff) format("woff"),url(https://ka-f.fontawesome.com/releases/v5.15.4/webfonts/free-fa-regular-400.ttf) format("truetype"),url(https://ka-f.fontawesome.com/releases/v5.15.4/webfonts/free-fa-regular-400.svg#fontawesome) format("svg");
-} 
-@font-face { 
-  font-family:"Font Awesome 5 Free";
-  font-style:normal;
-  font-weight:900;
-  font-display:block;
-  src:url(https://ka-f.fontawesome.com/releases/v5.15.4/webfonts/free-fa-solid-900.eot);
-  src:url(https://ka-f.fontawesome.com/releases/v5.15.4/webfonts/free-fa-solid-900.eot?#iefix) format("embedded-opentype"),url(https://ka-f.fontawesome.com/releases/v5.15.4/webfonts/free-fa-solid-900.woff2) format("woff2"),url(https://ka-f.fontawesome.com/releases/v5.15.4/webfonts/free-fa-solid-900.woff) format("woff"),url(https://ka-f.fontawesome.com/releases/v5.15.4/webfonts/free-fa-solid-900.ttf) format("truetype"),url(https://ka-f.fontawesome.com/releases/v5.15.4/webfonts/free-fa-solid-900.svg#fontawesome) format("svg");
-} 
-  body {  
-    cursor:url(https://cur.cursors-4u.net/sports/spo-1/spo48.cur), auto !important;
-    text-align:left;
-    font-family:ms gothic, monospace;
-    background-image:url('https://i.imgur.com/z1MDStw.gif');
-    font-size:2vh;
-  }  
-* { 
-    cursor: url(https://cur.cursors-4u.net/sports/spo-1/spo48.cur), auto !important;
-} 
+/* General styling for all elements */
+* {
+  cursor: inherit; /* You only need to set the cursor once for the body */
+}
 
-body { 
-    cursor: url(https://cur.cursors-4u.net/sports/spo-1/spo48.cur), auto !important;
-} 
+html {
+  scroll-behavior: smooth;
+}
 
-body { 
-    text-align: left; 
-    font-family: ms gothic, monospace; 
-    background-image: url('https://i.imgur.com/z1MDStw.gif'); 
-    font-size: 2vh;
-} 
+/* Container grid setup */
+.container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 10fr 1fr 5fr 7fr 0.1fr;
+  gap: 10px 1%;
+  justify-items: center;
+  align-items: center;
+  grid-template-areas:
+    ". header header header ."
+    ". profile1 main main ."
+    ". profile2 main main ."
+    ". profile2 foot foot ."
+    ". . . . .";
+  margin: 5% auto 0;
+  width: 70%;
+  height: 800px;
+}
 
-html { 
-    scroll-behavior: smooth;
-} 
+/* Individual grid sections */
+.header,
+.profile1,
+.profile2,
+.main,
+.foot {
+  border: 1px solid #990000;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
 
-.container { 
-    display: grid; 
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
-    grid-template-rows: 10fr 1fr 5fr 7fr 0.1fr; 
-    grid-auto-columns: 1fr; 
-    gap: 10px 1%; 
-    grid-auto-flow: row; 
-    justify-content: center; 
-    align-content: center; 
-    justify-items: center; 
-    align-items: center; 
-    grid-template-areas: ". header header header ."        ". profile1 main main ."        ". profile2 main main ."        ". profile2 foot foot ."        ". . . . ."; 
-    margin: 0 auto; 
-    margin-top: 5%; 
-    margin-left: 16%; 
-    width: 70%; 
-    height: 800px;
-} 
+.header {
+  grid-area: header;
+  background-color: aqua;
+}
 
-.header { 
-    grid-area: header; 
-    background-color: aqua; 
-    border: #990000 1px solid; 
-    width: 100%; 
-    height: 100%;
-} 
+.profile1 {
+  grid-area: profile1;
+}
 
-.profile1 { 
-    grid-area: profile1; 
-    background-color: white; 
-    height: 100%; 
-    width: 100%; 
-    border: #990000 1px solid;
-} 
+.profile2 {
+  grid-area: profile2;
+  overflow: auto;
+  font-size: 2vh;
+}
 
-.profile2 { 
-    grid-area: profile2; 
-    background-color: white; 
-    height: 100%; 
-    width: 100%; 
-    border: #990000 1px solid; 
-    overflow: auto; 
-    font-size: 2vh;
-} 
+.main {
+  grid-area: main;
+  overflow: auto;
+}
 
-.main { 
-    grid-area: main; 
-    background-color: white; 
-    height: 100%; 
-    width: 100%; 
-    border: #990000 1px solid; 
-    overflow: auto;
-} 
+.foot {
+  grid-area: foot;
+  overflow: auto;
+}
 
-.foot { 
-    grid-area: foot; 
-    background-color: white; 
-    height: 100%; 
-    width: 100%; 
-    border: #990000 1px solid; 
-    overflow: auto;
-} 
+#header_img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  background-image: url('https://i.imgur.com/8E6HUsM.png');
+}
 
-#header_img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: fill; 
-    background-position: 57% 50%; 
-    background-image: url('https://i.imgur.com/8E6HUsM.png');
-} 
+/* Miscellaneous styling */
+hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, white, #990000, white);
+}
 
-hr { 
-    border: 0; 
-    height: 1px; 
-    background-image: linear-gradient(to right, white, #990000, white);
-} 
+ul {
+  font-size: 2vh;
+}
 
-p { 
-    margin: 2.5%;
-} 
+span {
+  font-family: 'synkopy';
+  font-size: 4vh;
+  color: #990000;
+}
 
-ul { 
-    font-size: 2vh;
-} 
+a {
+  color: #990000;
+  text-decoration: none;
+}
+a:hover {
+  color: #a2a2ff;
+}
 
-:host { 
-    display: inline-block; 
-    overflow: hidden; 
-    text-align: initial; 
-    white-space: nowrap;
-} 
+#musicplayer {
+  background: white;
+  border: 1px solid #990000;
+  width: 200px;
+}
 
-#style-VSnf1.style-VSnf1 { 
-    font-size: 16px; 
-    background: rgba(0,0,0); 
-    margin-top: 42%; 
-    color: #FFFFFF;
-} 
+/* Font Awesome styling */
+.fas {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  display: inline-block;
+  font-style: normal;
+  line-height: 1;
+}
 
-#musicplayer { 
-    background: white; 
-    border: 1px solid #990000; 
-    width: 200px;
-} 
+.fa-backward:before {
+  content: "\f04a";
+}
+.fa-play:before {
+  content: "\f04b";
+}
+.fa-forward:before {
+  content: "\f04e";
+}
 
-span { 
-    font-family: 'synkopy'; 
-    font-size: 4vh; 
-    color: #990000;
-} 
-
-a { 
-    color: #990000; 
-    text-decoration: none;
-} 
-
-a:hover { 
-    color: #a2a2ff; 
-    text-decoration: none;
-} 
-
-.controls { 
-    font-size: 18px !important; 
-    background-color: #1e0303; 
-    text-align: center; 
-    width: 100%;
-} 
-
-.seeking { 
-    background-color: #990000; 
-    display: flex; 
-    justify-content: space-evenly; 
-    padding: 5px;
-} 
-
-.profile2 img  { 
-    padding: 2%;
-} 
-
-.songtitle { 
-    padding: 5px; 
-    border-bottom: 2px solid #990000; 
-    display: block;
-} 
-
-.current-time { 
-    padding-right: 5px;
-} 
-
-input[type="range"] { 
-    -webkit-appearance: none; 
-    width: 100%; 
-    background-color: #990000;
-} 
-
-.total-duration { 
-    padding-left: 5px;
-} 
-
-#statuscafe { 
-    padding: .5em; 
-    background-color: azure; 
-    border: 1px solid midnightblue;
-} 
-
-.controls td  { 
-    padding: 8px 5px 0px 5px;
-} 
-
-#statuscafe-username { 
-    margin-bottom: .5em;
-} 
-
-#statuscafe-content { 
-    margin: 0 1em 0.5em 1em;
-} 
-
-.fas { 
-    -moz-osx-font-smoothing: grayscale; 
-    -webkit-font-smoothing: antialiased; 
-    display: inline-block; 
-    font-style: normal; 
-    font-variant: normal; 
-    text-rendering: auto; 
-    line-height: 1;
-} 
-
-.fas { 
-    font-family: "Font Awesome 5 Free";
-} 
-
-.fas { 
-    font-weight: 900;
-} 
-
-i.fas.fa-backward { 
-    color: white;
-} 
-
-.fa-backward:before { 
-    content: "\f04a";
-} 
-
-i.fas.fa-play { 
-    color: white;
-} 
-
-.fa-play:before { 
-    content: "\f04b";
-} 
-
-i.fas.fa-forward { 
-    color: white;
-} 
-
-.fa-forward:before { 
-    content: "\f04e";
-} 
-
-
-/* These were inline style tags. Uses id+class to override almost everything */
-#style-5fUBC.style-5fUBC {  
-   color:red;  
-}  
-#style-Nq3Jm.style-Nq3Jm {  
-   width:88px;  
-   height:31px;  
-}  
-#style-TKjLp.style-TKjLp {  
-   width:88px;  
-   height:31px;  
-}  
-
-    </style>
+/* Inline override classes */
+#style-5fUBC.style-5fUBC {
+  color: red;
+}
+#style-Nq3Jm.style-Nq3Jm,
+#style-TKjLp.style-TKjLp {
+  width: 88px;
+  height: 31px;
+}
+</style>
